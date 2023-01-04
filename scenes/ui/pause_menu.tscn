@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4cwuwbgc4y6f"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_nem0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cns8u"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 10
+
+[node name="PauseMenu" type="PopupPanel"]
+disable_3d = true
+title = "Pause Menu"
+position = Vector2i(65, 80)
+size = Vector2i(208, 208)
+visible = true
+borderless = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_cns8u")
+script = ExtResource("1_nem0l")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 208.0
+offset_bottom = 208.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="VFlowContainer" type="HFlowContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="APIButton" type="Button" parent="CenterContainer/VFlowContainer"]
+process_mode = 2
+layout_mode = 2
+text = "API
+"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VFlowContainer"]
+process_mode = 2
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VFlowContainer/APIButton" to="." method="_on_api_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VFlowContainer/QuitButton" to="." method="_on_quit_button_pressed"]

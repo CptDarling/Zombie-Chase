@@ -1,0 +1,5 @@
+res://game_controller.tscn
+res://game_controller.gd
+res://scenes/ui/pause_menu.gd
+res://scenes/ui/pause_menu.tscn
+res://scenes/api_example.tscn
